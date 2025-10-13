@@ -10,6 +10,7 @@ export default function AppRoutes() {
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/roles" element={<RoleManagementPage />} />
+              <Route path="/createrole" element={<RoleCreatePage />} />
       </Route>
 
       <Route path="*" element={<h1>404 - Page Not Found</h1>} />

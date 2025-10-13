@@ -1,39 +1,55 @@
-
 import React, { useState } from "react";
 import PrimaryButton from "../components/buttons/PrimaryButton";
+import SearchInput from "../components/SearchInput ";
+import RolesTable from "../components/RolesTable";
 import StatCard from "../components/StatCard";
-const RoleManagementPage = () => {
+import UserRolesTable from "../components/UserRolesTable";
+import MobileSearchBar from "../components/MobileSearchBar";
+
+const UserManagementPage = () => {
   const [query, setQuery] = useState("");
 
   const roles = [
     {
       name: "Sales Agent",
-      permissions: ["VIEW", "EDIT", "CREATE"],
+      role: "Sales Agent",
+      email: "ameenshareef03@gmail.com",
       extraPermissions: 0,
       createdOn: "Aug 2, 2025",
       status: "Active",
     },
     {
       name: "BDM",
-      permissions: ["VIEW", "EDIT", "CREATE"],
+      role: "Sales Agent",
+      email: "ameer03@gmail.com",
       extraPermissions: 1,
       createdOn: "Aug 2, 2025",
       status: "Inactive",
     },
     {
       name: "Super Admin",
-      permissions: ["VIEW", "EDIT", "CREATE"],
+      role: "BDM",
+      email: "amal03@gmail.com",
       extraPermissions: 2,
       createdOn: "Aug 2, 2025",
       status: "Active",
     },
-  ];
-  const headings = [
-    "Role Name",
-    "Permissions",
-    "Created on",
-    "Status",
-    "Actions",
+    {
+      name: "Super Admin",
+      role: "Super Admin",
+      email: "amal03@gmail.com",
+      extraPermissions: 2,
+      createdOn: "Aug 2, 2025",
+      status: "Active",
+    },
+    {
+      name: "Super Admin",
+      role: "Super Admin",
+      email: "amal03@gmail.com",
+      extraPermissions: 2,
+      createdOn: "Aug 2, 2025",
+      status: "Active",
+    },
   ];
   return (
     <div className="bg-white pt-25 px-20 md:px-39">
@@ -47,13 +63,13 @@ const RoleManagementPage = () => {
       <div className="">
         {/* Header Section */}
         <div className="flex justify-between items-center mb-6">
-          <h1 className=" md:text-2xl xs:text-lg sm:text-lg font-bold text-gray-900">
-            Role Management
+          <h1 className="md:text-2xl xs:text-lg sm:text-lg font-bold text-gray-900">
+            User Management
           </h1>
           <PrimaryButton
             label={
               <>
-                <span className="hidden sm:inline">Create Role</span>
+                <span className="hidden sm:inline">Create User</span>
                 <span className="inline sm:hidden">Create</span>
               </>
             }
@@ -88,7 +104,7 @@ const RoleManagementPage = () => {
         {/* Search Input */}
         <div className="flex justify-between items-center pb-3">
           <div className=" pl-5">
-            <p className="text-md font-semibold text-black">Showing 3 out 3</p>
+            <p className="text-md font-semibold text-black">Showing 5 out 15</p>
           </div>
 
           <div className="hidden md:block">
@@ -101,7 +117,9 @@ const RoleManagementPage = () => {
         </div>
 
         {/* Roles Table */}
-        <RolesTable roles={roles} headings={headings} />
+
+        {/* <RolesTable roles={roles} headings={headings} /> */}
+        <UserRolesTable roles={roles} />
 
         {/* Pagination */}
         <div className="flex justify-between items-center mt-4">
@@ -147,4 +165,4 @@ const RoleManagementPage = () => {
   );
 };
 
-export default RoleManagementPage;
+export default UserManagementPage;
