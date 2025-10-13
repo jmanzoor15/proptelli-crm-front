@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import PrimaryButton from "../components/buttons/PrimaryButton";
+import PermissionSection from "../components/PermissionSection";
 import InformationCreateTable from "../components/InformationCreateTable";
 import BackArrowButton from "../components/buttons/BackArrowButton";
 import BackIconButton from "../components/buttons/BackIconButton";
 
-
 const RoleCreatePage = () => {
-
   const leadsPermissions = [
+    { label: "VIEW", active: false },
+    { label: "CREATE", active: true },
+    { label: "EDIT", active: true },
+    { label: "DELETE", active: false },
     { label: "ASSIGN", active: true },
   ];
 
@@ -85,6 +88,17 @@ const RoleCreatePage = () => {
           />
         </div>
         <div></div>
+      </div>
+
+      {/* Permissions Section */}
+      <div>
+        <h3 className="md:text-xl md:pl-4 text-lg font-semibold text-black md:mt-2 mb-2 md:mb-4 md:px-1">
+          Permissions
+        </h3>
+        <PermissionSection
+          titles={titles}
+          initialPermissions={leadsPermissions}
+        />
       </div>
     </div>
   );

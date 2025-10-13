@@ -1,4 +1,3 @@
-
 import React from "react";
 
 export const StatusBadge = ({ 
@@ -11,7 +10,7 @@ export const StatusBadge = ({
 
   return (
     <span
-      className={`inline-flex justify-center w-[62px] h-[25px] md:w-96 md:h-30 text-center items-center gap-2 px-4 py-1.5 rounded-full text-10 md:text-xss font-normal ${
+      className={`inline-flex justify-center w-96 h-30 text-center items-center gap-2 px-4 py-1.5 rounded-full text-xss font-normal ${
         isActive ? "bg-yellow text-white" : "bg-brickred text-white"
       }`}
     >

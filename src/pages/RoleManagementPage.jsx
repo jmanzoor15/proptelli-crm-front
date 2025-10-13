@@ -1,7 +1,12 @@
-
 import React, { useState } from "react";
 import PrimaryButton from "../components/buttons/PrimaryButton";
+import SearchInput from "../components/SearchInput ";
+import RolesTable from "../components/RolesTable";
 import StatCard from "../components/StatCard";
+import InformationTable from "../components/InformationTable";
+import PermissionSection from "../components/PermissionSection";
+import { Briefcase, Users } from "lucide-react";
+import MobileSearchBar from "../components/MobileSearchBar";
 const RoleManagementPage = () => {
   const [query, setQuery] = useState("");
 

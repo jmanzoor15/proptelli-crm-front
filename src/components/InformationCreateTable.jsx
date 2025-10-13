@@ -34,7 +34,7 @@ const InformationCreateTable = ({ fields, onFieldChange }) => {
               ) : field.type === "dropdown" ? (
                 <SelectRoleDropdown
                   roles={availableRoles}
-                  defaultLabel="Select"
+                  defaultLabel="SELECT"
                   onSelect={handleRoleSelect}
                 />
               ) : field.type === "toggle" ? (
