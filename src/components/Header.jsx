@@ -24,7 +24,7 @@ const Header = ({ onMenuClick,pageTitle}) => {
       <div className="md:hidden flex items-center justify-between px-4 py-3">
         <div className="">
           <button onClick={onMenuClick} className="p-2">
-            <img src="src/assets/icons/menu-icon.svg" alt="menu" />
+            <img src="/icons/menu-icon.svg" alt="menu" />
           </button>
           <span className="text-black text-base pl-3 font-semibold">{pageTitle}</span>
         </div>
@@ -44,7 +44,7 @@ const Header = ({ onMenuClick,pageTitle}) => {
             <img
               width={131}
               height={45}
-              src={"src/assets/Proptelli_Logo.svg"}
+              src={"/Proptelli_Logo.svg"}
               alt="Proptelli Logo"
             />
           </button>

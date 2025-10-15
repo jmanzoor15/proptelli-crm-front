@@ -26,7 +26,7 @@ export const SidebarDropdownButton = ({
           </div>
           <span className="text-sm font-normal not-italic">{label}</span>
         </div>
-        <img src="src/assets/icons/down-arrow.svg"
+        <img src="/icons/down-arrow.svg"
           size={16}
           className={`transition-transform mr-4 ${
             active ? "text-white" : "text-yellow-600"

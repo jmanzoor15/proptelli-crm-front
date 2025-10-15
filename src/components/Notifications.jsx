@@ -10,7 +10,7 @@ const Notifications = ({ count, onClick }) => {
                    w-[37px] h-[37px] sm:w-[50px] sm:h-[50px]"
       >
         <img
-          src={"src/assets/icons/notification_icon.svg"}
+          src={"/icons/notification_icon.svg"}
           alt="Notifications"
           className="object-contain w-[18px] h-[18px] sm:w-[21px] sm:h-[21px]"
         />

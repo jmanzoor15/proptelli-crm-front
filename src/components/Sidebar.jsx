@@ -9,16 +9,16 @@ const Sidebar = ({ isOpen, onClose }) => {
   const location = useLocation();
   
   const menuItems = [
-    { icon: "src/assets/icons/dashboard.svg", label: "Dashboard", path: "/" },
+    { icon: "/icons/dashboard.svg", label: "Dashboard", path: "/" },
     {
-      icon: "src/assets/icons/channel.svg",
+      icon: "/icons/channel.svg",
       label: "Channel Partners",
       path: "/channel-partners",
     },
-    { icon: "src/assets/icons/users.svg", label: "Leads", path: "/leads" },
-    { icon: "src/assets/icons/bdm.svg", label: "BDM", path: "/bdm" },
+    { icon: "/icons/users.svg", label: "Leads", path: "/leads" },
+    { icon: "/icons/bdm.svg", label: "BDM", path: "/bdm" },
     {
-      icon: "src/assets/icons/roles.svg",
+      icon: "/icons/roles.svg",
       label: "Roles",
       path: "/roles",
       active: true,
@@ -27,31 +27,31 @@ const Sidebar = ({ isOpen, onClose }) => {
 
   const appSubmenu = [
     {
-      icon: "src/assets/icons/tutorial.svg",
+      icon: "/icons/tutorial.svg",
       label: "Tutorials",
       path: "/tutorials",
     },
     {
-      icon: "src/assets/icons/list.svg",
+      icon: "/icons/list.svg",
       label: "Requirement List",
       path: "/requirement-list",
     },
     {
-      icon: "src/assets/icons/analytics.svg",
+      icon: "/icons/analytics.svg",
       label: "Video Analytics",
       path: "/video-analytics",
     },
     {
-      icon: "src/assets/icons/help.svg",
+      icon: "/icons/help.svg",
       label: "Help Requests",
       path: "/help-requests",
     },
     {
-      icon: "src/assets/icons/bug.svg",
+      icon: "/icons/bug.svg",
       label: "Bugs & Features",
       path: "/bugs-features",
     },
-    { icon: "src/assets/icons/faq.svg", label: "FAQ's", path: "/faqs" },
+    { icon: "/icons/faq.svg", label: "FAQ's", path: "/faqs" },
   ];
 
   useEffect(() => {
@@ -109,7 +109,7 @@ const Sidebar = ({ isOpen, onClose }) => {
             ))}
             {/* App Dropdown */}
             <SidebarDropdownButton
-              icon={"src/assets/icons/app.svg"}
+              icon={"/icons/app.svg"}
               label="App"
               submenuItems={appSubmenu}
               defaultOpen={false}
@@ -121,11 +121,11 @@ const Sidebar = ({ isOpen, onClose }) => {
         <div className="px-4 py-4 border-t border-gray-200 space-y-10">
           <SidebarMenuButton
             label={"Switch User"}
-            icon={"src/assets/icons/switch-user.svg"}
+            icon={"/icons/switch-user.svg"}
           />
           <SidebarMenuButton
             label={"Logout"}
-            icon={"src/assets/icons/logout.svg"}
+            icon={"/icons/logout.svg"}
           />
         </div>
 

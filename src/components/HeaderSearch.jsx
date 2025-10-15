@@ -22,7 +22,7 @@ const HeaderSearch = ({ placeholder = "Search leads, users ...", onChange, onSub
         onClick={handleToggle}
         className="p-2 bg-white border border-darkgreywhite hover:bg-gray-100 rounded-full w-12 h-12 flex justify-center items-center transition-colors"
       >
-        <img width={20} height={20} src={"src/assets/icons/search_icon.svg"} alt="Search" />
+        <img width={20} height={20} src={"/icons/search_icon.svg"} alt="Search" />
       </button>
 
       {isOpen && (

@@ -10,7 +10,7 @@ const MobileSearchBar = ({
       <img
         width={20}
         height={20}
-        src={"src/assets/icons/search_icon.svg"}
+        src={"/icons/search_icon.svg"}
         alt="Search"
       />{" "}
       <input

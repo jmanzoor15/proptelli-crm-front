@@ -47,17 +47,17 @@ const RolesTable = ({ roles, headings }) => {
                 <td className="px-6 py-11">
                   <div className="flex items-center gap-3">
                     <IconButton
-                      icon={"src/assets/icons/eye.svg"}
+                      icon={"/icons/eye.svg"}
                       alt="View"
                       onClick={() => alert("view clicked...")}
                     />
                     <IconButton
-                      icon={"src/assets/icons/edit.svg"}
+                      icon={"/icons/edit.svg"}
                       alt="Edit"
                       onClick={() => alert("edit clicked...")}
                     />
                     <IconButton
-                      icon={"src/assets/icons/delete.svg"}
+                      icon={"/icons/delete.svg"}
                       alt="Delete"
                       onClick={() => alert("Delete clicked...")}
                     />
@@ -106,17 +106,17 @@ const RolesTable = ({ roles, headings }) => {
               </div>
               <div className="flex items-center gap-3">
                 <IconButton
-                  icon={"src/assets/icons/eye.svg"}
+                  icon={"/icons/eye.svg"}
                   alt="View"
                   onClick={() => alert("view clicked...")}
                 />
                 <IconButton
-                  icon={"src/assets/icons/edit.svg"}
+                  icon={"/icons/edit.svg"}
                   alt="Edit"
                   onClick={() => alert("edit clicked...")}
                 />
                 <IconButton
-                  icon={"src/assets/icons/delete.svg"}
+                  icon={"/icons/delete.svg"}
                   alt="Delete"
                   onClick={() => alert("Delete clicked...")}
                 />

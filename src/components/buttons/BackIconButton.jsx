@@ -6,7 +6,7 @@ const BackIconButton = ({ onClick }) => {
       onClick={onClick}
       className="text-black block hover:text-gray-900"
     >
-      <img width={17} height={17} src="src/assets/icons/back-icon.svg" />
+      <img width={17} height={17} src="/icons/back-icon.svg" />
     </button>
   );
 };

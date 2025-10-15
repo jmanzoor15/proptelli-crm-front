@@ -47,7 +47,7 @@ const UserInfoPage = () => {
             <PrimaryButton
               label="Deactivate"
               onClick={() => alert("Deactivate Clicked!")}
-              src={"src/assets/icons/close-icon.svg"}
+              src={"/icons/close-icon.svg"}
               bgcolor={"brickred"}
               iconheight={24}
               iconwidth={24}
@@ -55,14 +55,14 @@ const UserInfoPage = () => {
             <div className="block md:hidden">
               <EditMobileButton
                 onClick={() => alert("Edit Role Clicked!")}
-                src={"src/assets/icons/edit-w-icon.svg"}
+                src={"/icons/edit-w-icon.svg"}
               />
             </div>
             <div className="hidden md:block">
               <PrimaryButton
                 label="Edit Role"
                 onClick={() => alert("Edit Role Clicked!")}
-                src={"src/assets/icons/edit-w-icon.svg"}
+                src={"/icons/edit-w-icon.svg"}
                 bgcolor={"black"}
                 iconheight={24}
                 iconwidth={24}
@@ -78,7 +78,7 @@ const UserInfoPage = () => {
         <div className=" pt-2">
           <StatusBadge
             status="Active"
-            icon="src/assets/icons/active-icon.svg"
+            icon="/icons/active-icon.svg"
             iconWidth={24}
             iconHeight={24}
           />

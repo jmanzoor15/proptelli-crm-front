@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ArrowIcon from "../assets/icons/uparrow.svg";
+import ArrowIcon from "/icons/uparrow.svg";
 const SelectRoleDropdown = ({ roles = [], defaultLabel = "SELECT", onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRole, setSelectedRole] = useState(defaultLabel);

@@ -74,7 +74,7 @@ const UserManagementPage = () => {
               </>
             }
             onClick={() => alert("Create Role Clicked!")}
-            src={"src/assets/icons/add-icon.svg"}
+            src={"/icons/add-icon.svg"}
             bgcolor={"black"}
             iconheight={24}
             iconwidth={24}
@@ -84,14 +84,14 @@ const UserManagementPage = () => {
         {/* Stats Cards */}
         <div className="flex gap-4 mb-6">
           <StatCard
-            src={"src/assets/icons/suitcase.svg"}
+            src={"/icons/suitcase.svg"}
             title="Roles"
             count={3}
             iconBg="#E6A100"
             onClick={() => console.log("Roles clicked")}
           />
           <StatCard
-            src={"src/assets/icons/users-1.svg"}
+            src={"/icons/users-1.svg"}
             title="Users"
             count={15}
             iconBg="#4A90E2"
