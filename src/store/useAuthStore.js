@@ -1,67 +1,56 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 import { loginUser } from "../api/services/authServices";
 
-const useAuthStore = create((set) => ({
-  user: null,
-  permissions: {},
-  access: null,
-  refresh: null,
-  loading: false,
-  error: null,
-
-  // ✅ Login function
-  login: async (credentials) => {
-    set({ loading: true, error: null });
-    try {
-      const data = await loginUser(credentials);
-
-      // Save tokens and user data in localStorage
-      localStorage.setItem("access", data.access);
-      localStorage.setItem("refresh", data.refresh);
-      localStorage.setItem("user", JSON.stringify(data.user));
-      localStorage.setItem("permissions", JSON.stringify(data.permissions));
-
-      set({
-        user: data.user,
-        permissions: data.permissions,
-        access: data.access,
-        refresh: data.refresh,
-        loading: false,
-      });
-
-      return true; // for navigation after login
-    } catch (err) {
-      set({ error: err.response?.data?.detail || "Login failed", loading: false });
-      return false;
-    }
-  },
-
-  // ✅ Logout function
-  logout: () => {
-    localStorage.removeItem("access");
-    localStorage.removeItem("refresh");
-    localStorage.removeItem("user");
-    localStorage.removeItem("permissions");
-
-    set({
+const useAuthStore = create(
+  persist(
+    (set) => ({
       user: null,
-      permissions: {},
       access: null,
       refresh: null,
-    });
-  },
+      permissions: {},
+      loading: false,
+      error: null,
 
-  // ✅ Restore auth state from localStorage on refresh
-  initializeAuth: () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    const permissions = JSON.parse(localStorage.getItem("permissions"));
-    const access = localStorage.getItem("access");
-    const refresh = localStorage.getItem("refresh");
+      login: async (email, password) => {
+        set({ loading: true, error: null });
+        try {
+          const data = await loginUser(email, password);
+          set({
+            user: data.user,
+            access: data.access,
+            refresh: data.refresh,
+            permissions: data.permissions || {},
+            loading: false,
+          });
+          return true;
+        } catch (error) {
+          set({ error: error.message, loading: false });
+          return false;
+        }
+      },
 
-    if (user && access) {
-      set({ user, permissions, access, refresh });
+      logout: () => {
+        set({
+          user: null,
+          access: null,
+          refresh: null,
+          permissions: {},
+          loading: false,
+        });
+        localStorage.removeItem("auth-storage");
+      },
+    }),
+    {
+      name: "auth-storage",
+      partialize: (state) => ({
+        user: state.user,
+        access: state.access,
+        refresh: state.refresh,
+        permissions: state.permissions,
+      }),
     }
-  },
-}));
+  )
+);
 
 export default useAuthStore;

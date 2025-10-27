@@ -11,8 +11,8 @@ const StatCard = ({ src, title, count, iconBg, onClick }) => {
   return (
     <div
       onClick={handleClick}
-      className={`cursor-pointer flex items-center gap-3 sm:gap-4 p-3 sm:p-4 md:p-6 rounded-2xl bg-greywhite transition-all border
-        w-full sm:max-w-[280px] md:max-w-[300px] 
+      className={`cursor-pointer flex items-center gap-3 sm:gap-4 p-2 sm:p-4 md:p-6 rounded-20 md:rounded-30 bg-greywhite transition-all border
+        w-full md:w-[261px] md:h-[134px] 
         hover:shadow-sm
         ${active ? "border-goldgreen shadow-md" : "border-gray-200 hover:border-gray-300"}`}
     >

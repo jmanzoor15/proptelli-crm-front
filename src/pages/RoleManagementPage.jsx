@@ -3,9 +3,6 @@ import PrimaryButton from "../components/buttons/PrimaryButton";
 import SearchInput from "../components/SearchInput ";
 import RolesTable from "../components/RolesTable";
 import StatCard from "../components/StatCard";
-import InformationTable from "../components/InformationTable";
-import PermissionSection from "../components/PermissionSection";
-import { Briefcase, Users } from "lucide-react";
 import MobileSearchBar from "../components/MobileSearchBar";
 const RoleManagementPage = () => {
   const [query, setQuery] = useState("");
@@ -105,12 +102,23 @@ const RoleManagementPage = () => {
           </div>
         </div>
 
+        <div className="flex justify-between items-center pb-3">
+      
+      
+      <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Role Management</h1>
+
+    </div>
+  
+  </div>
+
         {/* Roles Table */}
         <RolesTable roles={roles} headings={headings} />
 
         {/* Pagination */}
         <div className="flex justify-between items-center mt-4">
           <p className="text-sm text-gray-600">Showing 1 to 3 of 3 entries</p>
+          
           <div className="flex items-center gap-2">
             <button
               className="p-2 border border-gray-300 rounded hover:bg-gray-50 disabled:opacity-50"
@@ -130,6 +138,7 @@ const RoleManagementPage = () => {
             <button className="px-3 py-1 bg-gray-900 text-white rounded">
               1
             </button>
+
             <button
               className="p-2 border border-gray-300 rounded hover:bg-gray-50 disabled:opacity-50"
               disabled
@@ -145,6 +154,7 @@ const RoleManagementPage = () => {
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </button>
+            
           </div>
         </div>
       </div>
