@@ -77,7 +77,7 @@ const Sidebar = ({ isOpen, onClose }) => {
 
       <aside
         className={`w-[258px] bg-greywhite border-r border-gray-200 flex flex-col h-full
-        md:relative md:translate-x-0 fixed top-0 left-0 z-50 transition-transform duration-300 overflow-auto
+        md:relative md:translate-x-0 fixed top-0 left-0 z-60 transition-transform duration-300 overflow-auto
         ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         {/* Back button on mobile */}

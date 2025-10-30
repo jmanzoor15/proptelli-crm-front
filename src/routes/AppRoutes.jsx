@@ -40,7 +40,7 @@ export default function AppRoutes() {
 
           {/*  Roles Module */}
           <Route
-            path="/roles"
+            path="/role"
             element={
               <PermissionRoute moduleKey={MENU_KEYS.ROLE}>
                 <RoleManagementPage />
@@ -74,7 +74,7 @@ export default function AppRoutes() {
 
           {/* Users Module */}
           <Route
-            path="/users"
+            path="/user"
             element={
               <PermissionRoute moduleKey={MENU_KEYS.USER}>
                 <UserManagementPage />

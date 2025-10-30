@@ -1,5 +1,3 @@
-import React from "react";
-
 const Notifications = ({ count, onClick }) => {
   return (
     <div className="relative inline-block">
