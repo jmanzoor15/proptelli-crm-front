@@ -4,6 +4,7 @@ import Notifications from "./Notifications";
 import HeaderSearch from "./HeaderSearch";
 import { useNavigate } from "react-router-dom";
 import MobileSearchBar from "./MobileSearchBar";
+import NotificationCenter from "../components/NotificationCenter";
 
 const Header = ({ onMenuClick,pageTitle}) => {
   const navigate = useNavigate();
@@ -30,9 +31,7 @@ const Header = ({ onMenuClick,pageTitle}) => {
         </div>
 
         <div className="flex items-center gap-3">
-          <Notifications
-            onClick={() => alert("notification clicked!")}
-            count={5}
+          <NotificationCenter
           />
           <UserProfile onClick={() => alert("Profile clicked!")} />
         </div>
@@ -56,11 +55,8 @@ const Header = ({ onMenuClick,pageTitle}) => {
               onChange={(val) => console.log("Typing:", val)}
               onSubmit={(val) => console.log("Search submitted:", val)}
             />
-            <div className="relative">
-              <Notifications
-                onClick={() => alert("notification clicked!")}
-                count={5}
-              />
+            <div>
+              <NotificationCenter />
             </div>
             <div className="relative">
               <UserProfile onClick={() => alert("Profile clicked!")} />
