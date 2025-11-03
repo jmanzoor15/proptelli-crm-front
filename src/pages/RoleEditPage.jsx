@@ -18,13 +18,8 @@ const RoleEditPage = () => {
 
   const [showDialog, setShowDialog] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [roleData, setRoleData] = useState(null);
   const [modules, setModules] = useState([]);
   const [selectedPermissions, setSelectedPermissions] = useState([]);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-
-
 
   const [formData, setFormData] = useState({
     label: "",
@@ -43,7 +38,6 @@ const RoleEditPage = () => {
       try {
         setLoading(true);
         const data = await fetchRoleDetail(uid);
-        setRoleData(data);
 
 
 
