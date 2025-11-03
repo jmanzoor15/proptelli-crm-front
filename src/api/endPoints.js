@@ -16,7 +16,7 @@ const API_ENDPOINTS = {
   MODULE: {
     LIST: "api/modules/actions/",
     DETAIL:(id)=> `api/modules/${id}`,
-    UPDATE:(id)=> `api/module/edit/${id}`
+    DELETE: (uid) => `api/roles/${uid}/delete/`,
   },
   ACTIONS: {
     LIST: "api/actions/"
