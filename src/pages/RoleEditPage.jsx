@@ -9,8 +9,6 @@ import DeletePopup from "../components/buttons/DeleteButtonPopup";
 import { fetchRoleDetail, updateRole } from "@/api/services/roleServices";
 import PermissionSectionNew from "@/components/PermissionSectionNew";
 import { fetchModule } from "@/api/services/moduleServices";
-import { deleteRole } from "@/api/services/roleServices";   
-
 
 const RoleEditPage = () => {
   const { uid } = useParams();
@@ -18,8 +16,11 @@ const RoleEditPage = () => {
 
   const [showDialog, setShowDialog] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [roleData, setRoleData] = useState(null);
   const [modules, setModules] = useState([]);
   const [selectedPermissions, setSelectedPermissions] = useState([]);
+
+
 
   const [formData, setFormData] = useState({
     label: "",
@@ -38,6 +39,7 @@ const RoleEditPage = () => {
       try {
         setLoading(true);
         const data = await fetchRoleDetail(uid);
+        setRoleData(data);
 
 
 
@@ -94,24 +96,9 @@ const RoleEditPage = () => {
   };
 
 
-
   const handleDeleteButtonClick = () => setShowDialog(true);
   const handleCancel = () => setShowDialog(false);
-  const handleConfirmDelete = async () => {
-  try {
-    setIsDeleting(true);
-    await deleteRole(uid); 
-    alert("Role deleted successfully!");
-    setShowDialog(false);
-    navigate("/role"); 
-  } catch (error) {
-    console.error("Error deleting role:", error);
-    alert(error.message || "Failed to delete role.");
-  } finally {
-    setIsDeleting(false);
-  }
-};
-
+  const handleConfirmDelete = () => setShowDialog(false);
 
   if (loading) return <div className="p-10 text-center">Loading...</div>;
 
@@ -120,7 +107,7 @@ const RoleEditPage = () => {
       label: "Role Name",
       name: "label",
       value: formData.label,
-      type: "input",
+      type: "text",
     },
     {
       label: "Status",
@@ -217,10 +204,10 @@ const RoleEditPage = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="hidden md:block pt-2">
-              <BackArrowButton onClick={() => navigate(-1)} />
+              <BackArrowButton />
             </div>
             <div className="md:hidden">
-              <BackIconButton onClick={() => navigate(-1)}s />
+              <BackIconButton />
             </div>
             <h1 className="text-2.5xl hidden md:block font-semibold text-black">
               Edit Role

@@ -64,7 +64,7 @@ export default function AppRoutes() {
             }
           />
           <Route
-            path="/role-edit"
+            path="/role/edit/:uid"
             element={
               <PermissionRoute moduleKey={MENU_KEYS.ROLE}>
                 <RoleEditPage />

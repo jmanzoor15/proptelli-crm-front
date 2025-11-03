@@ -1,35 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PrimaryButton from "../components/buttons/PrimaryButton";
 import SearchInput from "../components/SearchInput ";
 import RolesTable from "../components/RolesTable";
 import StatCard from "../components/StatCard";
 import MobileSearchBar from "../components/MobileSearchBar";
-const RoleManagementPage = () => {
-  const [query, setQuery] = useState("");
+import { fetchRoles } from "@/api/services/roleServices";
+import { useNavigate } from "react-router-dom";
 
-  const roles = [
-    {
-      name: "Sales Agent",
-      permissions: ["VIEW", "EDIT", "CREATE"],
-      extraPermissions: 0,
-      createdOn: "Aug 2, 2025",
-      status: "Active",
-    },
-    {
-      name: "BDM",
-      permissions: ["VIEW", "EDIT", "CREATE"],
-      extraPermissions: 1,
-      createdOn: "Aug 2, 2025",
-      status: "Inactive",
-    },
-    {
-      name: "Super Admin",
-      permissions: ["VIEW", "EDIT", "CREATE"],
-      extraPermissions: 2,
-      createdOn: "Aug 2, 2025",
-      status: "Active",
-    },
-  ];
+const RoleManagementPage = () => {
+  
+  const [query, setQuery] = useState("");
+  const [data, setData] = useState([]);
+  const navigate = useNavigate();
+  
+  
+
+
   const headings = [
     "Role Name",
     "Permissions",
@@ -37,6 +23,26 @@ const RoleManagementPage = () => {
     "Status",
     "Actions",
   ];
+
+  useEffect( () => {
+
+    const fetchdata = async () => {
+      try {
+        // Simulate a network request
+        const response = await fetchRoles()
+        setData(response);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+    fetchdata()
+
+  }, []);
+
+  console.log("SSSSS",{ data });
+
+
+
   return (
     <div className="bg-white pt-25 px-20 md:px-39">
       <div className="md:hidden pb-3">
@@ -59,7 +65,7 @@ const RoleManagementPage = () => {
                 <span className="inline sm:hidden">Create</span>
               </>
             }
-            onClick={() => alert("Create Role Clicked!")}
+            onClick={() => navigate("/create-role")}
             src={"/icons/add-icon.svg"}
             bgcolor={"black"}
             iconheight={24}
@@ -72,7 +78,7 @@ const RoleManagementPage = () => {
           <StatCard
             src={"/icons/suitcase.svg"}
             title="Roles"
-            count={3}
+            count={data.length}
             iconBg="#E6A100"
             onClick={() => console.log("Roles clicked")}
           />
@@ -103,22 +109,22 @@ const RoleManagementPage = () => {
         </div>
 
         <div className="flex justify-between items-center pb-3">
-      
-      
-      <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Role Management</h1>
 
-    </div>
-  
-  </div>
+
+          <div className="p-6">
+            <h1 className="text-2xl font-bold mb-4">Role Management</h1>
+
+          </div>
+
+        </div>
 
         {/* Roles Table */}
-        <RolesTable roles={roles} headings={headings} />
+        <RolesTable roles={data} headings={headings} />
 
         {/* Pagination */}
         <div className="flex justify-between items-center mt-4">
           <p className="text-sm text-gray-600">Showing 1 to 3 of 3 entries</p>
-          
+
           <div className="flex items-center gap-2">
             <button
               className="p-2 border border-gray-300 rounded hover:bg-gray-50 disabled:opacity-50"
@@ -154,7 +160,7 @@ const RoleManagementPage = () => {
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </button>
-            
+
           </div>
         </div>
       </div>

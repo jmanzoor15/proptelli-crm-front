@@ -10,7 +10,7 @@ const API_ENDPOINTS = {
     LIST: "api/roles/",
     CREATE: "api/roles/create",
     DETAIL:(id)=> `api/roles/${id}`,
-    UPDATE:(id)=>`api/roles/${id}`,
+    UPDATE:(id)=>`api/roles/${id}/update/`,
     DELETE:(id)=>`api/roles/${id}`
   },
   MODULE: {
