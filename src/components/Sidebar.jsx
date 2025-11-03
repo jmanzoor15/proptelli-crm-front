@@ -18,38 +18,50 @@ const Sidebar = ({ isOpen, onClose }) => {
   const allowedMenuItems = useMemo(() => {
     if (!permissions || Object.keys(permissions).length === 0)
       return allMenuItems.filter((item) => item.key === "dashboard");
+    const hardcodedItem = {
+      key: "support",
+      label: "Support",
+      icon: "/icons/help.svg",
+      path: "/support",
+    };
 
     // Superuser → show all
     if (permissions?.user?.module?.access_level === "ALL")
       return allMenuItems;
 
     return allMenuItems.filter(
-      (item) => item.key === "dashboard" || permissions[item.key]
-    );
+      (item) => item.key === "dashboard" || permissions[item.key])
+      .concat({
+        key: "channel_partner",
+        label: "Channel Partner",
+        icon: "/icons/channel-partners.svg",
+        path: "/channel-partner",
+      })
+
   }, [permissions, allMenuItems]);
 
- 
- useEffect(() => {
-  // Always find the correct active item from allowedMenuItems (not full menuItems)
-  const foundIndex = allowedMenuItems.findIndex(
-    (item) =>
-      item.path === location.pathname ||
-      (location.pathname === "/" && item.key === "dashboard") ||
-      (location.pathname === "/dashboard" && item.key === "dashboard")
-  );
 
-  if (foundIndex !== -1) {
-    setActiveIndex(foundIndex);
-  } else {
-    // If redirected to dashboard or invalid route, set dashboard as active
-    const dashboardIndex = allowedMenuItems.findIndex(
-      (item) => item.key === "dashboard"
+  useEffect(() => {
+    // Always find the correct active item from allowedMenuItems (not full menuItems)
+    const foundIndex = allowedMenuItems.findIndex(
+      (item) =>
+        item.path === location.pathname ||
+        (location.pathname === "/" && item.key === "dashboard") ||
+        (location.pathname === "/dashboard" && item.key === "dashboard")
     );
-    if (dashboardIndex !== -1) {
-      setActiveIndex(dashboardIndex);
+
+    if (foundIndex !== -1) {
+      setActiveIndex(foundIndex);
+    } else {
+      // If redirected to dashboard or invalid route, set dashboard as active
+      const dashboardIndex = allowedMenuItems.findIndex(
+        (item) => item.key === "dashboard"
+      );
+      if (dashboardIndex !== -1) {
+        setActiveIndex(dashboardIndex);
+      }
     }
-  }
-}, [location.pathname, allowedMenuItems]);
+  }, [location.pathname, allowedMenuItems]);
 
   function onNavigate(path, index) {
     setActiveIndex(index);
@@ -70,7 +82,7 @@ const Sidebar = ({ isOpen, onClose }) => {
       {/* Overlay for mobile */}
       {isOpen && (
         <div
-          className="md:hidden fixed inset-0 bg-black bg-opacity-50"
+          className="md:hidden fixed inset-0 bg-black bg-opacity-50 "
           onClick={onClose}
         />
       )}
