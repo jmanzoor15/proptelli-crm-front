@@ -1,7 +1,7 @@
 const API_ENDPOINTS = {
   AUTH: {
     LOGIN: "api/auth/login/",
-    REFRESH: "/auth/token/refresh/",
+    REFRESH: "api/auth/refresh/",
   },
   USERS: {
     LIST: "/users/",

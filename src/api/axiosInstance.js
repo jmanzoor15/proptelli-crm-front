@@ -1,5 +1,6 @@
 import axios from "axios";
 import useAuthStore from "../store/useAuthStore";
+import API_ENDPOINTS from "./endPoints";
 
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || "https://api.crm.proptelli.com/",
@@ -34,7 +35,7 @@ axiosInstance.interceptors.response.use(
       originalRequest._retry = true;
       try {
         const response = await axios.post(
-          `${import.meta.env.VITE_API_BASE_URL || "https://api.crm.proptelli.com/"}auth/token/refresh/`,
+     `${import.meta.env.VITE_API_BASE_URL || "https://api.crm.proptelli.com/"}${API_ENDPOINTS.AUTH.REFRESH}`,
           { refresh },
           { headers: { "Content-Type": "application/json" } }
         );
