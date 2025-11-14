@@ -95,6 +95,7 @@ export default {
   		},
   		borderRadius: {
 			"5":"5px",
+		    '10':"10px",
   			'20': '20px',
   			'30': '30px',
   			lg: 'var(--radius)',
@@ -105,6 +106,7 @@ export default {
   			'10': '10px',
   			'md': '15px',
   			'xss': '13px',
+			'17':"17px",
   			'25': '25px',
   			'2.5xl': '28px',
   			'3.5xl': '35px',
